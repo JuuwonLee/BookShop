@@ -1,5 +1,3 @@
-// 240411  이주원
-
 const conn = require('../mariadb');
 const { StatusCodes } = require('http-status-codes');
 const jwt = require('jsonwebtoken');
@@ -94,23 +92,6 @@ const passwordResetRequest = (req, res) => {
             }
         })
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const passwordReset = (req, res) => {
     const { email, password } = req.body;
