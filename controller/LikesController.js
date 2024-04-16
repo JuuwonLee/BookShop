@@ -14,7 +14,7 @@ const addLike = (req, res) => {
         }
         res.status(StatusCodes.OK).json(results);
     })
-}
+};
 const removeLike = (req, res) => {
     // 좋아요 삭제
     const { id } = req.params;
@@ -30,7 +30,7 @@ const removeLike = (req, res) => {
         res.status(StatusCodes.OK).json(results);
 
     })
-}
+};
 
 module.exports = {
     addLike,
