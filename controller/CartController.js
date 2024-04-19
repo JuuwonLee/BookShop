@@ -16,7 +16,7 @@ const addToCart = (req, res) => {
 };
 // 장바구니 아이템 목록 조회
 const getCartItems = (req, res) => {
-    const { user_id, selected } = req.body;
+    const { user_id, selected } = req.body; // selected = [1, 3]
     let sql = `SELECT cartItems.id, book_id, title, summary, quantity, price FROM cartItems 
                 LEFT JOIN books 
                 ON cartItems.book_id = books.id
