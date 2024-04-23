@@ -52,7 +52,8 @@ const login = (req, res) => {
             // => 디비 비밀번호랑 비교
             if (loginUser && loginUser.password == hashPassword) {
                 const token = jwt.sign({
-                    email: loginUser.email
+                    id : loginUser.id,
+                    email : loginUser.email
                 }, process.env.PRIVATE_KEY, {
                     expiresIn: '5m',
                     issuer: "juwon Lee"
@@ -62,7 +63,7 @@ const login = (req, res) => {
                     httponly: true
                 });
                 console.log(token);
-
+                
                 return res.status(StatusCodes.OK).json(results);
             } else {
                 return res.status(StatusCodes.UNAUTHORIZED).end(); // 401 : Unauthorized, 403 : Forbidden (접근 권리 없음)
