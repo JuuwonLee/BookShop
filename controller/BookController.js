@@ -40,6 +40,12 @@ const allBooks = (req, res) => {
                 results.map(function(result){
                     result.pubDate = result.pub_date;
                     delete result.pub_date;
+                    delete result.category_id;
+                    delete result.form;
+                    delete result.isbn;
+                    delete result.detail;
+                    delete result.pages;
+                    delete result.contents;
                 })
                 allBooksRes.books = results;
             }
@@ -70,7 +76,7 @@ const allBooks = (req, res) => {
 };
 
 const bookDetail = (req, res) => {
-
+    let bookDetailRes = {};
     let authorization = ensureAuthorization(req, res);
 
     if (authorization instanceof jwt.TokenExpiredError) {
@@ -98,8 +104,23 @@ const bookDetail = (req, res) => {
                     console.log(err);
                     return res.status(StatusCodes.BAD_REQUEST).end();
                 }
-                if (results.length)
-                    return res.status(StatusCodes.OK).json(results[0]);
+                if (results.length){
+                    results.map(function(result){
+                        
+                        result.category = result.category_name;
+                        delete result.category_id;
+                        delete result.category_name;
+
+                        result.format = result.form;
+                        delete result.form;
+
+                        result.pubDate = result.pub_date;
+                        delete result.pub_date;
+                    })
+                    bookDetailRes.books = results;
+                    return res.status(StatusCodes.OK).json(bookDetailRes);
+                }
+                    
                 else
                     res.status(StatusCodes.NOT_FOUND).end();
 
@@ -121,8 +142,22 @@ const bookDetail = (req, res) => {
                     console.log(err);
                     return res.status(StatusCodes.BAD_REQUEST).end();
                 }
-                if (results.length)
-                    return res.status(StatusCodes.OK).json(results[0]);
+                if (results.length){
+                    results.map(function(result){
+                        
+                        result.category = result.category_name;
+                        delete result.category_id;
+                        delete result.category_name;
+
+                        result.format = result.form;
+                        delete result.form;
+                        
+                        result.pubDate = result.pub_date;
+                        delete result.pub_date;
+                    })
+                    bookDetailRes.books = results;
+                    return res.status(StatusCodes.OK).json(bookDetailRes);
+                }
                 else
                     res.status(StatusCodes.NOT_FOUND).end();
 
