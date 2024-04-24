@@ -26,8 +26,10 @@ const join = (req, res) => {
                 return res.status(StatusCodes.BAD_REQUEST).end();
             }
 
-            res.status(StatusCodes.CREATED).json(results);
-
+            if(results.affectedRows)
+                res.status(StatusCodes.CREATED).json(results);
+            else
+                return res.status(StatusCodes.BAD_REQUEST).end();
         }
     )
 
@@ -55,7 +57,7 @@ const login = (req, res) => {
                     id : loginUser.id,
                     email : loginUser.email
                 }, process.env.PRIVATE_KEY, {
-                    expiresIn: '5m',
+                    expiresIn: '24h',
                     issuer: "juwon Lee"
                 });
                 // 토큰 쿠키에 담기
