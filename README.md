@@ -1,5 +1,8 @@
 # Introdution
-도서 정보 API 설계 및 구현 프로젝트
+Node.js 기반의 도서 정보 API 설계 및 구현 프로젝트
+
+# ERD
+![image](https://github.com/JuuwonLee/BookShop/assets/103981051/206900ee-a150-45cb-a856-d12b6b53f8b4)
 
 # dependencies
 
