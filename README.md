@@ -48,7 +48,7 @@
 
 ## 카테고리 API
 
-카테고리 전체 조회
+1. 카테고리 전체 조회
 <img width="485" alt="image" src="https://github.com/JuuwonLee/BookShop/assets/103981051/c025da4d-a2e3-4ab7-9680-9cb486f0af99">
 
 ## 좋아요 API
